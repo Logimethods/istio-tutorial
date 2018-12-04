@@ -253,7 +253,7 @@ cd recommendation/java/vertx
 
 mvn clean package
 
-docker build -t example/recommendation:v2 .
+docker build -t logimethods/istio-recommendation:v2 .
 
 docker images | grep recommendation
 

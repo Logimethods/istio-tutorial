@@ -913,7 +913,7 @@ Your very first Docker build will take a bit of time as it downloads all the lay
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd customer/java/springboot
 mvn clean package
-docker build -t example/customer .
+docker build -t logimethods/istio-customer .
 docker images | grep customer</code></pre>
 </div>
 </div>
@@ -1026,7 +1026,7 @@ If your pod fails with <code>ImagePullBackOff</code>, it&#8217;s possible that y
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd preference/java/springboot
 mvn clean package
-docker build -t example/preference:v1 .
+docker build -t logimethods/istio-preference:v1 .
 docker images | grep preference
 
 oc apply -f &lt;(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial
@@ -1133,7 +1133,7 @@ The tag <code>v1</code> at the end of the image name matters. We will be creatin
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd recommendation/java/vertx
 mvn clean package
-docker build -t example/recommendation:v1 .
+docker build -t logimethods/istio-recommendation:v1 .
 docker images | grep recommendation
 
 oc apply -f &lt;(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial
@@ -1213,7 +1213,7 @@ vi src/main/java/com/redhat/developer/demos/{servicename}/{Servicename}{Controll
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn clean package
-docker build -t example/{servicename}:v1 .
+docker build -t logimethods/istio-{servicename}:v1 .
 
 oc get pods -o jsonpath='{.items[*].metadata.name}' -l app={servicename}
 oc get pods -o jsonpath='{.items[*].metadata.name}' -l app={servicename},version=v1
@@ -1377,11 +1377,11 @@ You may have to refresh the browser for the Prometheus graph to update. And you 
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd recommendation/java/vertx
 mvn clean package
 
-docker build -t example/recommendation:v2 .
+docker build -t logimethods/istio-recommendation:v2 .
 
 docker images | grep recommendation
-example/recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
-example/recommendation                  v1                  f072978d9cf6        8 minutes ago      438MB</code></pre>
+logimethods/istio-recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
+logimethods/istio-recommendation                  v1                  f072978d9cf6        8 minutes ago      438MB</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2311,7 +2311,7 @@ customer =&gt; preference =&gt; recommendation v1 from '2039379827-h58vw': 130</
 
 mvn clean package
 
-docker build -t example/recommendation:v2 .
+docker build -t logimethods/istio-recommendation:v2 .
 
 docker images | grep recommendation
 
@@ -2831,12 +2831,12 @@ istioctl delete destinationrule recommendation -n tutorial</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd recommendation/java/vertx
 mvn clean package
 
-docker build -t example/recommendation:v3 .
+docker build -t logimethods/istio-recommendation:v3 .
 
 docker images | grep recommendation
-example/recommendation                  v3                  0671dfb295df        3 seconds ago       443MB
-example/recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
-example/recommendation                  v1                  f072978d9cf6        8 minutes ago       438MB</code></pre>
+logimethods/istio-recommendation                  v3                  0671dfb295df        3 seconds ago       443MB
+logimethods/istio-recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
+logimethods/istio-recommendation                  v1                  f072978d9cf6        8 minutes ago       438MB</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3024,7 +3024,7 @@ But in this case instead of communicating with recommendation service, we are go
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn clean package
 
-docker build -t example/preference:v2 .</code></pre>
+docker build -t logimethods/istio-preference:v2 .</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -3126,7 +3126,7 @@ customer =&gt; PREFERENCE =&gt; recommendation v2 from '1275713543-2bs5k': 3</pr
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd recommendation/virtualized
 
-docker build -t example/recommendation:virtualized .
+docker build -t logimethods/istio-recommendation:virtualized .
 docker images | grep recommendation
 
 oc apply -f &lt;(istioctl kube-inject -f ../kubernetes/Deployment-virtualized.yml) -n tutorial

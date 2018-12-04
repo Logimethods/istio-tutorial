@@ -44,12 +44,12 @@ To:
 cd recommendation/java/vertx
 mvn clean package
 
-docker build -t example/recommendation:v3 .
+docker build -t logimethods/istio-recommendation:v3 .
 
 docker images | grep recommendation
-example/recommendation                  v3                  0671dfb295df        3 seconds ago       443MB
-example/recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
-example/recommendation                  v1                  f072978d9cf6        8 minutes ago       438MB
+logimethods/istio-recommendation                  v3                  0671dfb295df        3 seconds ago       443MB
+logimethods/istio-recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
+logimethods/istio-recommendation                  v1                  f072978d9cf6        8 minutes ago       438MB
 ----
 
 _Important:_ We have a 3rd Deployment to manage the v3 version of recommendation. 

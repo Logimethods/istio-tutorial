@@ -35,7 +35,7 @@ There is also a second `deployment.yml` file to label things correctly
 ----
 mvn clean package
 
-docker build -t example/preference:v2 .
+docker build -t logimethods/istio-preference:v2 .
 ----
 
 IMPORTANT: We have a 2nd Deployment to manage the v2 version of preference.
@@ -114,7 +114,7 @@ We'll create a Docker image with Hoverfly (Service Virtualization tool) with som
 ----
 cd recommendation/virtualized
 
-docker build -t example/recommendation:virtualized .
+docker build -t logimethods/istio-recommendation:virtualized .
 docker images | grep recommendation
 
 oc apply -f <(istioctl kube-inject -f ../kubernetes/Deployment-virtualized.yml) -n tutorial

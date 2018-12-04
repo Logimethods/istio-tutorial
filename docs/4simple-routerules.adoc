@@ -22,11 +22,11 @@ There is also a second `deployment.yml` file to label things correctly
 cd recommendation/java/vertx
 mvn clean package
 
-docker build -t example/recommendation:v2 .
+docker build -t logimethods/istio-recommendation:v2 .
 
 docker images | grep recommendation
-example/recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
-example/recommendation                  v1                  f072978d9cf6        8 minutes ago      438MB
+logimethods/istio-recommendation                  v2                  c31e399a9628        5 seconds ago       438MB
+logimethods/istio-recommendation                  v1                  f072978d9cf6        8 minutes ago      438MB
 ----
 
 _Important:_ We have a 2nd Deployment to manage the v2 version of recommendation. 

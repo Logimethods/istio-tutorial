@@ -49,7 +49,7 @@ The following commands will build a Docker image containing the application, cre
 
 ```bash
 mvn clean package
-docker build -t example/recommendation:v1 .
+docker build -t logimethods/istio-recommendation:v1 .
 docker images | grep recommendation
 oc apply -f ../../kubernetes/Deployment.yml
 oc apply -f ../../kubernetes/Service.yml

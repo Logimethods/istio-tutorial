@@ -57,7 +57,7 @@ The following commands will build a Docker image containing the application, cre
 
 ```bash
 mvn clean package
-docker build -t example/preference .
+docker build -t logimethods/istio-preference .
 docker images | grep preference
 oc apply -f ../../kubernetes/Deployment.yml
 oc apply -f ../../kubernetes/Service.yml

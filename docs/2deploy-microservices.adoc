@@ -46,7 +46,7 @@ GolangVersion: go1.10.1
 BuildStatus: Clean
 ----
 
-==== Customer build using Docker daemon 
+==== Customer build using Docker daemon
 
 NOTE: Your very first Docker build will take a bit of time as it downloads all the layers. Subsequent rebuilds of the Docker image, updating only the microservice layer will be very fast.
 
@@ -54,7 +54,8 @@ NOTE: Your very first Docker build will take a bit of time as it downloads all t
 ----
 cd customer/java/springboot
 mvn clean package
-docker build -t example/customer .
+docker build -t logimethods/istio-customer .
+docker push logimethods/istio-customer
 docker images | grep customer
 ----
 
@@ -144,7 +145,8 @@ cd ../../..
 ----
 cd preference/java/springboot
 mvn clean package
-docker build -t example/preference:v1 .
+docker build -t logimethods/istio-preference:v1 .
+docker push logimethods/istio-preference:v1
 docker images | grep preference
 
 oc apply -f <(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial
@@ -222,14 +224,14 @@ IMPORTANT: The tag `v1` at the end of the image name matters. We will be creatin
 ----
 cd recommendation/java/vertx
 mvn clean package
-docker build -t example/recommendation:v1 .
+docker build -t logimethods/istio-recommendation:v1 .
 docker images | grep recommendation
 
 oc apply -f <(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial
 oc create -f ../../kubernetes/Service.yml
 oc get pods -w
 
-or 
+or
 
 kubectl apply -f <(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial
 kubectl create -f ../../kubernetes/Service.yml
@@ -292,7 +294,7 @@ Make your changes, save it and then:
 [source,bash]
 ----
 mvn clean package
-docker build -t example/{servicename}:v1 .
+docker build -t logimethods/istio-{servicename}:v1 .
 
 oc get pods -o jsonpath='{.items[*].metadata.name}' -l app={servicename}
 oc get pods -o jsonpath='{.items[*].metadata.name}' -l app={servicename},version=v1
